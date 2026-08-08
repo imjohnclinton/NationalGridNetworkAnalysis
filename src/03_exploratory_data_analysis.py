@@ -81,7 +81,7 @@ print(region_line_length)
 print("Substation Status Distribution")
 print(substations['Status'].value_counts())
 
-# Individual voltage level distribution
+# Individual voltage level distribution     
 print("Substation Voltage Distribution")
 print(substations['Voltage (kV)'].value_counts())
 

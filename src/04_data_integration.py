@@ -2,11 +2,21 @@ import pandas as pd
 
 lines = pd.read_csv('data/lines.csv')   
 substations = pd.read_csv('data/substations.csv')
+utilities = pd.read_csv('data/utilities.csv')
+# 1. Convert all ID columns to strings to prevent data type mismatches
+lines['Utility ID'] = lines['Utility ID'].astype(str)
+lines['Source Substation ID'] = lines['Source Substation ID'].astype(str)
+lines['Destination Substation ID'] = lines['Destination Substation ID'].astype(str)
 
-lines['Source Substation'] = lines['Source Substation'].astype(str)
-lines['Destination Substation'] = lines['Destination Substation'].astype(str)
 substations['Substation ID'] = substations['Substation ID'].astype(str)
+utilities['Utility ID'] = utilities['Utility ID'].astype(str)
 
+# 2. Join Utilities onto Lines
+masterDs = lines.merge(
+    utilities,
+    on='Utility ID',
+    how='left'
+)
 
 masterDs=lines.merge(
     substations[['Substation ID', 'Region']], 
