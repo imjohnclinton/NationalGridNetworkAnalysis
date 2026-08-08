@@ -3,7 +3,7 @@ import pandas as pd
 
 utilities=pd.read_csv("data/utilities.csv")
 substations=pd.read_csv("data/substations.csv")
-lines=pd.read_csv("data/lines.csv")  
+lines=pd.read_csv("data/lines.csv")     
 
 print(substations[['Latitude','Longitude','Voltage (kV)','Capacity (MVA)','Commissioning Year']].describe())
 print("-----------------------------------------------------------------------------------")
@@ -43,8 +43,69 @@ print("-------------------------------------------------------------------------
 print("Top Utilities")
 topUtilities = lines['Utility ID'].value_counts().to_dict()
 print(topUtilities)
+
+sourceCounts = lines['Source Substation'].value_counts()
+destCounts = lines['Destination Substation'].value_counts()
+
+# Add them together to get total connected lines per substation
+
+totalConnections = sourceCounts.add(destCounts, fill_value=0).sort_values(ascending=False)
+
+print("Top 10 Most-Connected Substations")
+print(totalConnections.head(10))
+
+# Distribution of substations by region
+substations_per_region = substations['Region'].value_counts()
+print("Substations per Region")
+print(substations_per_region)
+
+# Convert both ID columns to text (strings) so they match perfectly
+lines['Source Substation'] = lines['Source Substation'].astype(str)
+substations['Substation ID'] = substations['Substation ID'].astype(str)
+
+# Total line capacity or length by region 
+# If lines are linked to substations, merge lines with substations first:
+linesWithRegion = lines.merge(
+    substations[['Substation ID', 'Region']], 
+    left_on='Source Substation', 
+    right_on='Substation ID', 
+    how='left'
+)
+
+region_line_length = linesWithRegion.groupby('Region')['Length (km)'].sum().sort_values(ascending=False)
+print("Total Transmission Line Length (km) by Region")
+print(region_line_length)
+
+# Individual status distribution
+print("Substation Status Distribution")
+print(substations['Status'].value_counts())
+
+# Individual voltage level distribution
+print("Substation Voltage Distribution")
+print(substations['Voltage (kV)'].value_counts())
+
+# Cross-tabulation: Voltage levels broken down by Active vs. Inactive status
+voltage_by_status = pd.crosstab(substations['Voltage (kV)'], substations['Status'])
+print("Voltage Levels by Operational Status")
+print(voltage_by_status)
+
+# Individual status distribution
+print("Substation Status Distribution")
+print(substations['Status'].value_counts())
+
+# Individual voltage level distribution
+print("Substation Voltage Distribution")
+print(substations['Voltage (kV)'].value_counts())
+
+# Cross-tabulation: Voltage levels broken down by Active vs. Inactive status
+voltage_by_status = pd.crosstab(substations['Voltage (kV)'], substations['Status'])
+print("Voltage Levels by Operational Status")
+print(voltage_by_status)
+
 # Dashboard components:
-# - Executive summary with key metrics
+
+
+# - Executive summary with key metrics   
 # - Interactive map with filtering options (region, voltage, utility)
 # - Network analysis visualization
 # - Business intelligence / reliability charts
