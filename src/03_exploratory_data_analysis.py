@@ -61,6 +61,7 @@ print(substations_per_region)
 
 # Convert both ID columns to text (strings) so they match perfectly
 lines['Source Substation'] = lines['Source Substation'].astype(str)
+lines['Destination Substation'] = lines['Destination Substation'].astype(str)
 substations['Substation ID'] = substations['Substation ID'].astype(str)
 
 # Total line capacity or length by region 
@@ -101,6 +102,7 @@ print(substations['Voltage (kV)'].value_counts())
 voltage_by_status = pd.crosstab(substations['Voltage (kV)'], substations['Status'])
 print("Voltage Levels by Operational Status")
 print(voltage_by_status)
+
 
 # Dashboard components:
 
