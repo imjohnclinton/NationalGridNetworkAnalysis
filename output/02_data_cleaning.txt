@@ -1,0 +1,48 @@
+Missing Source Substations: 0
+missing Destination Substations: 0
+Lines with Invalid Utility IDs: 0
+----------------------------------------
+Substations with out-of-bounds Latitude: 0
+Substations with out-of-bounds Longitude: 1
+----------------------------------------
+Duplicate Rows in Utilities:0
+Duplicate Rows in Substations:0
+Duplicate Rows in lines:0
+Missing Values in Utilities:
+Utility ID    0
+Name          0
+Alias         0
+Code          0
+Type          0
+Country       0
+Active        0
+dtype: int64
+
+Missing Values in Substations:
+Substation ID         0
+Name                  0
+Short Name            0
+Region                0
+Country               0
+Latitude              0
+Longitude             0
+Voltage (kV)          0
+Capacity (MVA)        0
+Commissioning Year    0
+Type                  0
+Status                0
+dtype: int64
+
+Missing Values in Lines:
+Line ID                      0
+Utility ID                   0
+Source Substation ID         0
+Source Substation            0
+Destination Substation ID    0
+Destination Substation       0
+Voltage (kV)                 0
+Length (km)                  0
+Capacity (MVA)               0
+Status                       0
+Line Type                    0
+dtype: int64 
