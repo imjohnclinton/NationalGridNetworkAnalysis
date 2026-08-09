@@ -72,6 +72,10 @@ region_line_length = linesWithRegion.groupby('Region')['Length (km)'].sum().sort
 print("Total Transmission Line Length (km) by Region")
 print(region_line_length)
 
+# Individual Region distribution
+print("Substation Region Distribution")
+print(substations['Region'].value_counts())
+
 # Individual status distribution
 print("Substation Status Distribution")
 print(substations['Status'].value_counts())
