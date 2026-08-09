@@ -1,4 +1,4 @@
-# Using Streamlit or Dash
+import matplotlib.pyplot as plt
 import pandas as pd
 
 utilities=pd.read_csv("data/utilities.csv")
@@ -59,16 +59,11 @@ substations_per_region = substations['Region'].value_counts()
 print("Substations per Region")
 print(substations_per_region)
 
-# Convert both ID columns to text (strings) so they match perfectly
-lines['Source Substation'] = lines['Source Substation'].astype(str)
-lines['Destination Substation'] = lines['Destination Substation'].astype(str)
-substations['Substation ID'] = substations['Substation ID'].astype(str)
-
 # Total line capacity or length by region 
 # If lines are linked to substations, merge lines with substations first:
 linesWithRegion = lines.merge(
     substations[['Substation ID', 'Region']], 
-    left_on='Source Substation', 
+    left_on='Source Substation ID', 
     right_on='Substation ID', 
     how='left'
 )
@@ -90,21 +85,19 @@ voltage_by_status = pd.crosstab(substations['Voltage (kV)'], substations['Status
 print("Voltage Levels by Operational Status")
 print(voltage_by_status)
 
-# Individual status distribution
-print("Substation Status Distribution")
-print(substations['Status'].value_counts())
 
-# Individual voltage level distribution
-print("Substation Voltage Distribution")
-print(substations['Voltage (kV)'].value_counts())
+plt.figure(figsize=(10, 6))
+substations['Region'].value_counts().plot(kind='bar', title='Substations by Region')
+plt.tight_layout()
+plt.savefig('output/eda_regions.png')
+plt.show()
 
-# Cross-tabulation: Voltage levels broken down by Active vs. Inactive status
-voltage_by_status = pd.crosstab(substations['Voltage (kV)'], substations['Status'])
-print("Voltage Levels by Operational Status")
-print(voltage_by_status)
+plt.figure(figsize=(10, 6))
+totalConnections.head(10).plot(kind='bar', title='Top 10 Most-Connected Substations')
+plt.tight_layout()
+plt.savefig('output/eda_top_substations.png')
+plt.show()
 
-
-# Dashboard components:
 
 
 # - Executive summary with key metrics   
