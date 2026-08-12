@@ -80,7 +80,7 @@ heat_data = [[row['Latitude'], row['Longitude']] for index, row in substations.d
 HeatMap(heat_data, radius=15, blur=20).add_to(layer_heatmap)
 
 # --- B. Substations by Voltage ---
-voltage_colors = {33: 'green', 69: 'blue', 161: 'orange', 330: 'red'}
+voltage_colors = {11: 'purple',33: 'green', 69: 'blue', 161: 'orange', 330: 'red'}
 
 for _, row in substations.dropna(subset=['Latitude', 'Longitude']).iterrows():
     v = row.get('Voltage (kV)', 0)
@@ -92,7 +92,7 @@ for _, row in substations.dropna(subset=['Latitude', 'Longitude']).iterrows():
         color=color,
         fill=True,
         fill_opacity=0.7,
-        tooltip=f"{row.get('Substation Name', 'Unknown')} ({v}kV) - {row.get('Region', '')}"
+        tooltip=f"{row.get('Name', 'Unknown')} ({v}kV) - {row.get('Region', '')}"
     ).add_to(layer_substations)
 
 # --- C. Transmission Lines ---
