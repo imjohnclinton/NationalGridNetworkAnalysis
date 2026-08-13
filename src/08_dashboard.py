@@ -33,16 +33,26 @@ lines, substations, utilities, master = load_data()
 def build_graph(_lines, _substations):
     G = nx.Graph()
     for _, row in _substations.iterrows():
-        G.add_node(row["Substation ID"], name=row.get("Name", f"Substation {row['Substation ID']}"),
-                   region=row.get("Region", "N/A"), voltage=row.get("Voltage (kV)", 0))
+        G.add_node(
+            row["Substation ID"], 
+            name=row.get("Name", f"Substation {row['Substation ID']}"),
+            region=row.get("Region", "N/A"), 
+            voltage=row.get("Voltage (kV)", 0),
+            lat=row.get("Latitude", None),
+            lon=row.get("Longitude", None)
+        )
     for _, row in _lines.iterrows():
-        G.add_edge(row["Source Substation ID"], row["Destination Substation ID"],
-                   length=row.get("Length (km)", 1.0), capacity=row.get("Capacity (MVA)", 1.0))
+        G.add_edge(
+            row["Source Substation ID"], 
+            row["Destination Substation ID"],
+            length=row.get("Length (km)", 1.0), 
+            capacity=row.get("Capacity (MVA)", 1.0)
+        )
     return G
 
 G = build_graph(lines, substations)
 
-st.title("Ghana National Grid — Network Analysis Dashboard")
+st.title("Ghana National Grid Network Analysis Dashboard")
 
 tab_overview, tab_network, tab_geo, tab_reliability, tab_search = st.tabs(
     ["Overview", "Network", "Geography", "Reliability", "Search"]
@@ -52,7 +62,7 @@ tab_overview, tab_network, tab_geo, tab_reliability, tab_search = st.tabs(
 # TAB 1 — OVERVIEW
 # ==========================================
 with tab_overview:
-    st.subheader("Executive summary")
+    st.subheader("Summary")
 
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Substations", len(substations))
@@ -60,11 +70,11 @@ with tab_overview:
     col3.metric("Utilities", len(utilities))
     col4.metric("Regions covered", substations["Region"].nunique())
 
-    col5, col6, col7 = st.columns(3)
+    col5, col6, col7, col8 = st.columns(4)
     col5.metric("Active substations", (substations["Status"] == "Active").sum())
     col6.metric("Total line length (km)", f"{lines['Length (km)'].sum():,.0f}")
     col7.metric("Avg. substation capacity (MVA)", f"{substations['Capacity (MVA)'].mean():.1f}")
-
+    
     st.markdown("---")
     c1, c2 = st.columns(2)
     with c1:
@@ -72,6 +82,7 @@ with tab_overview:
             px.bar(substations["Region"].value_counts().reset_index(),
                    x="Region", y="count", title="Substations by region"),
             use_container_width=True
+        
         )
     with c2:
         st.plotly_chart(
@@ -102,9 +113,12 @@ with tab_network:
 
     if region_filter != "All":
         centrality_df = centrality_df[centrality_df["Region"] == region_filter]
+    else:
+        filtered_centrality = centrality_df
 
-    st.dataframe(centrality_df, use_container_width=True)
+    st.dataframe(filtered_centrality, use_container_width=True)
 
+    st.markdown("---")
     st.markdown("#### N-1 contingency test")
     top_hub_id = centrality_df.iloc[0]["Substation ID"] if not centrality_df.empty else None
     if top_hub_id is not None and st.button(f"Simulate removing top hub ({centrality_df.iloc[0]['Name']})"):
@@ -129,10 +143,26 @@ with tab_geo:
     selected_voltages = st.multiselect("Filter by voltage (kV)", voltage_options, default=voltage_options)
 
     filtered_subs = substations[substations["Voltage (kV)"].isin(selected_voltages)]
-
+    valid_sub_ids = set(filtered_subs["Substation ID"])
+    
     m = folium.Map(location=[7.9465, -1.0232], zoom_start=6, tiles="CartoDB Positron")
     voltage_colors = {11: "purple", 33: "green", 69: "blue", 161: "orange", 330: "red"}
 
+    sub_coords = filtered_subs.set_index("Substation ID")[["Latitude", "Longitude"]].to_dict("index")
+    for _, line in lines.iterrows():
+        src = line["Source Substation ID"]
+        dst = line["Destination Substation ID"]
+        if src in sub_coords and dst in sub_coords:
+            p1 = [sub_coords[src]["Latitude"], sub_coords[src]["Longitude"]]
+            p2 = [sub_coords[dst]["Latitude"], sub_coords[dst]["Longitude"]]
+            folium.PolyLine(
+                locations=[p1, p2],
+                color="#555555",
+                weight=1.5,
+                opacity=0.6,
+                tooltip=f"Line: {src} ↔ {dst} ({line.get('Length (km)', 'N/A')} km)"
+            ).add_to(m)
+            
     for _, row in filtered_subs.dropna(subset=["Latitude", "Longitude"]).iterrows():
         v = row.get("Voltage (kV)", 0)
         folium.CircleMarker(
@@ -144,25 +174,32 @@ with tab_geo:
             tooltip=f"{row.get('Name', 'Unknown')} ({v}kV) - {row.get('Region', '')}",
         ).add_to(m)
 
-    st_folium(m, width=None, height=500, use_container_width=True)
+    st_folium(m, width=None, height=550, use_container_width=True)
 
 # ==========================================
 # TAB 4 — RELIABILITY / BI
 # ==========================================
 with tab_reliability:
-    st.subheader("Business intelligence and reliability")
+    st.subheader("Business Intelligence and Reliability Analysis")
 
     c1, c2 = st.columns(2)
     with c1:
-        status_counts = substations["Status"].value_counts().reset_index()
-        st.plotly_chart(px.bar(status_counts, x="Status", y="count", title="Substation status"), use_container_width=True)
+        if "Status" in substations.columns:
+            status_counts = (
+                substations["Status"]
+                .value_counts()
+                .rename_axis("Status")
+                .reset_index(name="count")
+            )
+            st.plotly_chart(px.bar(status_counts, x="Status", y="count", title="Substation Operational Status"), use_container_width=True)
     with c2:
-        st.plotly_chart(
-            px.histogram(substations, x="Commissioning Year", title="Substations by commissioning year"),
-            use_container_width=True
-        )
+        if "Commissioning Year" in substations.columns:
+            st.plotly_chart(
+                px.histogram(substations, x="Commissioning Year", title="Substation Age Distribution (Commissioning Year)"),
+                use_container_width=True
+            )
 
-    st.markdown("Capacity utilization and asset-age analysis go here once Task 7 (BI) numbers are finalized.")
+    st.info("💡 Capacity utilization and asset-age degradation models can be integrated here upon Task 7 completion.")
 
 # ==========================================
 # TAB 5 — SEARCH
