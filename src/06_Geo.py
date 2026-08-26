@@ -6,9 +6,9 @@ from geopy.distance import geodesic
 from sklearn.cluster import DBSCAN
 import matplotlib.pyplot as plt
 
-# ==========================================
+
 # 1. LOAD DATA & PREPARE COORDINATES
-# ==========================================
+
 lines = pd.read_csv('data/lines.csv')
 substations = pd.read_csv('data/substations.csv')
 utilities = pd.read_csv('data/utilities.csv')
@@ -21,9 +21,9 @@ substations['Substation ID'] = substations['Substation ID'].astype(str)
 # Create a coordinate dictionary for fast lookup: { 'ID': (lat, lon) }
 coords_dict = substations.set_index('Substation ID')[['Latitude', 'Longitude']].apply(tuple, axis=1).to_dict()
 
-# ==========================================
+
 # 2. DISTANCE ANALYSIS & GEOMETRY
-# ==========================================
+
 def calculate_geodesic(row):
     src = row['Source Substation ID']
     dst = row['Destination Substation ID']
@@ -47,9 +47,9 @@ lines['Distance Category'] = lines['Calculated Length (km)'].apply(categorize_di
 print("--- DISTANCE DISTRIBUTION ANALYSIS ---")
 print(lines['Distance Category'].value_counts(), "\n")
 
-# ==========================================
+
 # 3. SUBSTATION CLUSTERING (DBSCAN)
-# ==========================================
+
 # Find geographic clusters of substations (e.g., max 30km apart to be in the same cluster)
 coords_array = substations[['Latitude', 'Longitude']].dropna().values
 # Convert 30km to radians for haversine metric (Earth radius approx 6371 km)
@@ -63,9 +63,9 @@ print("--- GEOGRAPHIC CLUSTERING ---")
 print(f"Number of distinct high-density clusters found: {len(set(substations['Cluster ID'])) - 1}")
 print(f"Number of isolated substations (noise): {list(substations['Cluster ID']).count(-1)}\n")
 
-# ==========================================
+
 # 4. BUILD INTERACTIVE MULTI-LAYER MAP
-# ==========================================
+
 # Center map on Ghana (approx 7.9465 N, 1.0232 W)
 ghana_map = folium.Map(location=[7.9465, -1.0232], zoom_start=6, tiles='CartoDB Positron')
 
