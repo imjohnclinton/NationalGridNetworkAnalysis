@@ -16,9 +16,9 @@ import folium
 
 st.set_page_config(page_title="Ghana National Grid Dashboard", layout="wide")
 
-# ==========================================
-# LOAD DATA (cached so it only loads once per session)
-# ==========================================
+
+# LOAD DATA 
+
 @st.cache_data
 def load_data():
     lines = pd.read_csv("data/lines.csv")
@@ -58,9 +58,9 @@ tab_overview, tab_network, tab_geo, tab_reliability, tab_search = st.tabs(
     ["Overview", "Network", "Geography", "Reliability", "Search"]
 )
 
-# ==========================================
+
 # TAB 1 — OVERVIEW
-# ==========================================
+
 with tab_overview:
     st.subheader("Summary")
 
@@ -90,9 +90,9 @@ with tab_overview:
             use_container_width=True
         )
 
-# ==========================================
+
 # TAB 2 — NETWORK
-# ==========================================
+
 with tab_network:
     st.subheader("Network structure and vulnerability")
 
@@ -133,9 +133,9 @@ with tab_network:
                 names = [G.nodes[n]["name"] for n in comp]
                 st.write(f"Group {i} ({len(comp)} substations): {', '.join(names)}")
 
-# ==========================================
+
 # TAB 3 — GEOGRAPHY
-# ==========================================
+
 with tab_geo:
     st.subheader("Geographic distribution")
 
@@ -176,9 +176,9 @@ with tab_geo:
 
     st_folium(m, width=None, height=550, use_container_width=True)
 
-# ==========================================
+
 # TAB 4 — RELIABILITY / BI
-# ==========================================
+
 with tab_reliability:
     st.subheader("Business Intelligence and Reliability Analysis")
 
@@ -201,9 +201,9 @@ with tab_reliability:
 
     st.info("💡 Capacity utilization and asset-age degradation models can be integrated here upon Task 7 completion.")
 
-# ==========================================
+
 # TAB 5 — SEARCH
-# ==========================================
+
 with tab_search:
     st.subheader("Substation finder")
 

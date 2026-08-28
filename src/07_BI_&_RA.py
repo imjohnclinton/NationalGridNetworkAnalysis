@@ -5,9 +5,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-# ==========================================
+
 # 1. LOAD & PREPARE DATASETS
-# ==========================================
+
 lines = pd.read_csv('data/lines.csv')
 substations = pd.read_csv('data/substations.csv')
 utilities = pd.read_csv('data/utilities.csv')
@@ -25,9 +25,9 @@ utilities['Utility ID'] = utilities['Utility ID'].astype(str)
 lines = lines.merge(utilities[['Utility ID', 'Name']], on='Utility ID', how='left')
 substations['Name'] = 'National Grid Operator'
 
-# ==========================================
+
 # 2. LOAD, CAPACITY & AGE ANALYSIS
-# ==========================================
+
 # A. Asset Age Calculation
 substations['Asset Age'] = current_year - substations.get('Commissioning Year', current_year)
 substations['High Fault Risk'] = substations['Asset Age'] > 30 # Flag assets > 30 years old
@@ -53,9 +53,9 @@ def calc_loss_proxy(row):
 
 lines['Loss Proxy Index'] = lines.apply(calc_loss_proxy, axis=1)
 
-# ==========================================
+
 # 3. RELIABILITY & RISK METRICS
-# ==========================================
+
 # Maintenance Status Rates by Utility & Region
 lines['Is Maintenance'] = lines.get('Status', 'Active').astype(str).str.contains('Maintenance', case=False)
 maint_by_utility = lines.groupby('Name')['Is Maintenance'].mean() * 100
@@ -70,9 +70,9 @@ region_counts = substations.groupby('Region')['Substation ID'].count().reset_ind
 region_counts.columns = ['Region', 'Substation Count']
 underserved_regions = region_counts.sort_values(by='Substation Count', ascending=True)
 
-# ==========================================
+
 # 4. TERMINAL EXECUTIVE REPORT
-# ==========================================
+
 print("==================================================")
 print("       POWER GRID BUSINESS & RELIABILITY REPORT   ")
 print("==================================================")
@@ -85,9 +85,9 @@ print("\n--- UNDERSERVED REGIONS (GROWTH OPPORTUNITIES) ---")
 print(underserved_regions.head().to_string(index=False))
 print("==================================================\n")
 
-# ==========================================
+
 # 5. GENERATE BUSINESS INTELLIGENCE DASHBOARD
-# ==========================================
+
 fig = make_subplots(
     rows=2, cols=2,
     subplot_titles=(
