@@ -1,0 +1,85 @@
+<class 'pandas.DataFrame'>
+RangeIndex: 10 entries, 0 to 9
+Data columns (total 7 columns):
+ #   Column      Non-Null Count  Dtype
+---  ------      --------------  -----
+ 0   Utility ID  10 non-null     int64
+ 1   Name        10 non-null     str  
+ 2   Alias       10 non-null     str  
+ 3   Code        10 non-null     str  
+ 4   Type        10 non-null     str  
+ 5   Country     10 non-null     str  
+ 6   Active      10 non-null     str  
+dtypes: int64(1), str(6)
+memory usage: 1.2 KB
+None
+   Utility ID                                       Name   Alias Code          Type        Country Active
+0           1               Electricity Company of Ghana     ECG  ECG  Distribution          Ghana      Y
+1           2  Northern Electricity Distribution Company   NEDCo  NED  Distribution          Ghana      Y
+2           3                         Ghana Grid Company  GRIDCo  GRD  Transmission          Ghana      Y
+3           4                      Volta River Authority     VRA  VRA    Generation          Ghana      Y
+4           5         Compagnie Ivoirienne d'Electricite     CIE  CIE  Distribution  Cote d'Ivoire      Y
+-----------------
+<class 'pandas.DataFrame'>
+RangeIndex: 44 entries, 0 to 43
+Data columns (total 12 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   Substation ID       44 non-null     int64  
+ 1   Name                44 non-null     str    
+ 2   Short Name          44 non-null     str    
+ 3   Region              44 non-null     str    
+ 4   Country             44 non-null     str    
+ 5   Latitude            44 non-null     float64
+ 6   Longitude           44 non-null     float64
+ 7   Voltage (kV)        44 non-null     int64  
+ 8   Capacity (MVA)      44 non-null     float64
+ 9   Commissioning Year  44 non-null     int64  
+ 10  Type                44 non-null     str    
+ 11  Status              44 non-null     str    
+dtypes: float64(3), int64(3), str(6)
+memory usage: 6.9 KB
+None
+   Substation ID                 Name Short Name         Region Country  Latitude  Longitude  Voltage (kV)  Capacity (MVA)  Commissioning Year          Type  Status
+0              1  Achimota Substation   Achimota  Greater Accra   Ghana    5.6085    -0.2193            11             6.4                2008  Distribution  Active
+1              2      Tema Substation       Tema  Greater Accra   Ghana    5.6596    -0.0226           330            48.5                1997  Transmission  Active
+2              3    Mallam Substation     Mallam  Greater Accra   Ghana    5.5630    -0.2971           330            25.2                1979  Transmission  Active
+3              4     Legon Substation      Legon  Greater Accra   Ghana    5.6401    -0.1799           161           241.9                2009  Transmission  Active
+4              5  Kaneshie Substation   Kaneshie  Greater Accra   Ghana    5.5691    -0.2413           161           146.0                1970  Transmission  Active
+-----------------
+<class 'pandas.DataFrame'>
+RangeIndex: 55 entries, 0 to 54
+Data columns (total 11 columns):
+ #   Column                     Non-Null Count  Dtype  
+---  ------                     --------------  -----  
+ 0   Line ID                    55 non-null     int64  
+ 1   Utility ID                 55 non-null     int64  
+ 2   Source Substation ID       55 non-null     int64  
+ 3   Source Substation          55 non-null     str    
+ 4   Destination Substation ID  55 non-null     int64  
+ 5   Destination Substation     55 non-null     str    
+ 6   Voltage (kV)               55 non-null     int64  
+ 7   Length (km)                55 non-null     float64
+ 8   Capacity (MVA)             55 non-null     float64
+ 9   Status                     55 non-null     str    
+ 10  Line Type                  55 non-null     str    
+dtypes: float64(2), int64(5), str(4)
+memory usage: 7.7 KB
+None
+   Line ID  Utility ID  Source Substation ID    Source Substation  Destination Substation ID  ... Voltage (kV)  Length (km)  Capacity (MVA)  Status    Line Type
+0        1           2                     1  Achimota Substation                          2  ...           11         25.2           215.0  Active  Underground
+1        2           2                     1  Achimota Substation                          3  ...           11         11.0            36.4  Active     Overhead
+2        3           3                     1  Achimota Substation                          5  ...           11          5.9           277.4  Active     Overhead
+3        4           1                     2      Tema Substation                          3  ...          330         34.4            39.0  Active  Underground
+4        5           3                     2      Tema Substation                          4  ...          161         19.5           186.5  Active  Underground
+
+[5 rows x 11 columns]
+-----------------
+Utility ID    0
+Name          0
+Alias         0
+Code          0
+Type          0
+Country       0
+Active        0
+dtype: int64

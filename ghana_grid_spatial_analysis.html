@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_cfbc9bd8edf1daa6744b49bf7082a627 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_cfbc9bd8edf1daa6744b49bf7082a627" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_cfbc9bd8edf1daa6744b49bf7082a627 = L.map(
+                "map_cfbc9bd8edf1daa6744b49bf7082a627",
+                {
+                    center: [7.9465, -1.0232],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_05fc951da8cbed2bed30318b8c5908eb = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_05fc951da8cbed2bed30318b8c5908eb.addTo(map_cfbc9bd8edf1daa6744b49bf7082a627);
+        
+    
+            var feature_group_b6288e90f09cd63cecbb5b389d5db9d3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var heat_map_d35c803ebc762428b890b62a91a34f23 = L.heatLayer(
+                [[5.6085, -0.2193], [5.6596, -0.0226], [5.563, -0.2971], [5.6401, -0.1799], [5.5691, -0.2413], [5.5921, -0.1439], [6.6856, -1.623], [6.7128, -1.4716], [6.2091, -1.6557], [7.0553, -1.4029], [6.6094, -1.2163], [4.9048, -1.7562], [4.9905, -1.7714], [5.3093, -1.9927], [4.8747, -2.2381], [5.1068, -1.2411], [5.362, -0.6218], [5.5262, -0.4124], [5.6984, -1.497], [6.1017, -0.254], [6.2991, 0.0641], [6.5502, -0.7749], [6.035, -0.4535], [6.6194, 0.473], [6.1597, 0.1061], [7.1436, 0.4766], [5.9995, 0.5762], [7.3375, -2.3318], [7.5934, -1.9405], [7.4443, -2.5946], [9.4072, -0.8508], [9.4368, -0.0076], [9.6264, -0.8265], [10.7789, -0.8524], [11.0615, -0.2333], [10.0682, -2.506], [11.2, -0.75], [5.2, -2.85], [6.12, 1.19], [6.13, 1.22], [6.37, 2.43], [5.35, -4.0], [11.18, -4.3], [9.64, -13.58]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 15,
+  "blur": 20,
+}
+            );
+        
+    
+            heat_map_d35c803ebc762428b890b62a91a34f23.addTo(feature_group_b6288e90f09cd63cecbb5b389d5db9d3);
+        
+    
+            feature_group_b6288e90f09cd63cecbb5b389d5db9d3.addTo(map_cfbc9bd8edf1daa6744b49bf7082a627);
+        
+    
+            var feature_group_bef621f8ac208750604193e86df99a03 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_036a691469efbea734a1b11b81793f08 = L.polyline(
+                [[5.6085, -0.2193], [5.6596, -0.0226]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_036a691469efbea734a1b11b81793f08.bindTooltip(
+                `<div>
+                     Line: 1 | Length: 22.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_77762ea7927eb7a1253867b8bff67ded = L.polyline(
+                [[5.6085, -0.2193], [5.563, -0.2971]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_77762ea7927eb7a1253867b8bff67ded.bindTooltip(
+                `<div>
+                     Line: 2 | Length: 10.0km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5632cb442070fe0a3fa81fe933054d25 = L.polyline(
+                [[5.6085, -0.2193], [5.5691, -0.2413]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_5632cb442070fe0a3fa81fe933054d25.bindTooltip(
+                `<div>
+                     Line: 3 | Length: 5.0km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_aa1e03b5e0144eceb953a45d1082795c = L.polyline(
+                [[5.6596, -0.0226], [5.563, -0.2971]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_aa1e03b5e0144eceb953a45d1082795c.bindTooltip(
+                `<div>
+                     Line: 4 | Length: 32.2km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5024963a5ecbb4efeb11f5145e95cd50 = L.polyline(
+                [[5.6596, -0.0226], [5.6401, -0.1799]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_5024963a5ecbb4efeb11f5145e95cd50.bindTooltip(
+                `<div>
+                     Line: 5 | Length: 17.6km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1982c78dcc89e0a12b6c754219ef2cdf = L.polyline(
+                [[5.563, -0.2971], [5.6401, -0.1799]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_1982c78dcc89e0a12b6c754219ef2cdf.bindTooltip(
+                `<div>
+                     Line: 6 | Length: 15.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e75d3f6f36928e36a9b17ac059d0068e = L.polyline(
+                [[5.563, -0.2971], [5.5691, -0.2413]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_e75d3f6f36928e36a9b17ac059d0068e.bindTooltip(
+                `<div>
+                     Line: 7 | Length: 6.2km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1517d9d38a8b4f2b6e086abe76881061 = L.polyline(
+                [[5.563, -0.2971], [5.5921, -0.1439]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_1517d9d38a8b4f2b6e086abe76881061.bindTooltip(
+                `<div>
+                     Line: 8 | Length: 17.3km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fbee1600ae3fde4995c314bcb85e4f47 = L.polyline(
+                [[5.6401, -0.1799], [5.5691, -0.2413]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_fbee1600ae3fde4995c314bcb85e4f47.bindTooltip(
+                `<div>
+                     Line: 9 | Length: 10.4km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d730d42f1937f0102baa1af09f213b46 = L.polyline(
+                [[5.6401, -0.1799], [5.5921, -0.1439]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_d730d42f1937f0102baa1af09f213b46.bindTooltip(
+                `<div>
+                     Line: 10 | Length: 6.6km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_181be3107667317f70eb0668b9b7bd44 = L.polyline(
+                [[6.6856, -1.623], [7.0553, -1.4029]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_181be3107667317f70eb0668b9b7bd44.bindTooltip(
+                `<div>
+                     Line: 11 | Length: 47.6km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_840a132737767c6c42bbd84a23934965 = L.polyline(
+                [[6.6856, -1.623], [6.6094, -1.2163]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_840a132737767c6c42bbd84a23934965.bindTooltip(
+                `<div>
+                     Line: 12 | Length: 45.8km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7cfc889e6fdd8a8acd162b3cefad038c = L.polyline(
+                [[6.7128, -1.4716], [6.2091, -1.6557]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_7cfc889e6fdd8a8acd162b3cefad038c.bindTooltip(
+                `<div>
+                     Line: 13 | Length: 59.3km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8903f1f556dedec843b3583572d800d6 = L.polyline(
+                [[6.7128, -1.4716], [6.6094, -1.2163]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_8903f1f556dedec843b3583572d800d6.bindTooltip(
+                `<div>
+                     Line: 14 | Length: 30.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0f9131cade3e54586fd06f87be84e63e = L.polyline(
+                [[6.2091, -1.6557], [6.6094, -1.2163]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_0f9131cade3e54586fd06f87be84e63e.bindTooltip(
+                `<div>
+                     Line: 15 | Length: 65.7km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_01aa38a23dcffb40d65341a2cd1e85a9 = L.polyline(
+                [[7.0553, -1.4029], [6.6094, -1.2163]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_01aa38a23dcffb40d65341a2cd1e85a9.bindTooltip(
+                `<div>
+                     Line: 16 | Length: 53.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f8391014ee24475ba5a2953c93bed937 = L.polyline(
+                [[4.9048, -1.7562], [4.9905, -1.7714]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_f8391014ee24475ba5a2953c93bed937.bindTooltip(
+                `<div>
+                     Line: 17 | Length: 9.6km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e1bfa21ef863360253a445509d6cb51f = L.polyline(
+                [[4.9048, -1.7562], [5.3093, -1.9927]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_e1bfa21ef863360253a445509d6cb51f.bindTooltip(
+                `<div>
+                     Line: 18 | Length: 51.9km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_59968a33e43d7b031c74699d6f024ccb = L.polyline(
+                [[4.9905, -1.7714], [5.3093, -1.9927]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_59968a33e43d7b031c74699d6f024ccb.bindTooltip(
+                `<div>
+                     Line: 19 | Length: 43.0km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1736cbb1b6d8dbea495b70de959dc85f = L.polyline(
+                [[4.9905, -1.7714], [4.8747, -2.2381]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_1736cbb1b6d8dbea495b70de959dc85f.bindTooltip(
+                `<div>
+                     Line: 20 | Length: 53.3km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f63e2a4e30646bc27331b3ae6365e11a = L.polyline(
+                [[5.3093, -1.9927], [4.8747, -2.2381]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_f63e2a4e30646bc27331b3ae6365e11a.bindTooltip(
+                `<div>
+                     Line: 21 | Length: 55.2km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f91f17f1a14c58e663f5fa94b6ec6e62 = L.polyline(
+                [[5.1068, -1.2411], [5.362, -0.6218]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_f91f17f1a14c58e663f5fa94b6ec6e62.bindTooltip(
+                `<div>
+                     Line: 22 | Length: 74.2km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c0a74e5c0ea8da7c0b3ee57ba254b4cb = L.polyline(
+                [[5.1068, -1.2411], [5.5262, -0.4124]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_c0a74e5c0ea8da7c0b3ee57ba254b4cb.bindTooltip(
+                `<div>
+                     Line: 23 | Length: 102.9km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e2f306bf6eeb4fb5690c7e09401179ae = L.polyline(
+                [[5.1068, -1.2411], [5.6984, -1.497]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_e2f306bf6eeb4fb5690c7e09401179ae.bindTooltip(
+                `<div>
+                     Line: 24 | Length: 71.3km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a5a24864029c2e6cf2309c412d06afec = L.polyline(
+                [[5.362, -0.6218], [5.5262, -0.4124]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_a5a24864029c2e6cf2309c412d06afec.bindTooltip(
+                `<div>
+                     Line: 25 | Length: 29.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5cda8803703efbe43ae0e7e71c8ac348 = L.polyline(
+                [[5.5262, -0.4124], [5.6984, -1.497]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_5cda8803703efbe43ae0e7e71c8ac348.bindTooltip(
+                `<div>
+                     Line: 26 | Length: 121.7km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_590db7bbadcc27d8ac844bdf4714243f = L.polyline(
+                [[6.1017, -0.254], [6.2991, 0.0641]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_590db7bbadcc27d8ac844bdf4714243f.bindTooltip(
+                `<div>
+                     Line: 27 | Length: 41.4km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6bcb43eaae844929f3aef4884c8305ec = L.polyline(
+                [[6.1017, -0.254], [6.5502, -0.7749]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_6bcb43eaae844929f3aef4884c8305ec.bindTooltip(
+                `<div>
+                     Line: 28 | Length: 76.0km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ed592aebff85343fc9f580dabaa6ac9a = L.polyline(
+                [[6.2991, 0.0641], [6.5502, -0.7749]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_ed592aebff85343fc9f580dabaa6ac9a.bindTooltip(
+                `<div>
+                     Line: 29 | Length: 96.9km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8bbf797b3c12dc6499849a38401419ae = L.polyline(
+                [[6.2991, 0.0641], [6.035, -0.4535]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_8bbf797b3c12dc6499849a38401419ae.bindTooltip(
+                `<div>
+                     Line: 30 | Length: 64.3km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a05dc8b3911bc36e87e16e40afdfabe1 = L.polyline(
+                [[6.5502, -0.7749], [6.035, -0.4535]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_a05dc8b3911bc36e87e16e40afdfabe1.bindTooltip(
+                `<div>
+                     Line: 31 | Length: 67.2km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7a23996247f58924b0cfb04084793cb3 = L.polyline(
+                [[6.6194, 0.473], [6.1597, 0.1061]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_7a23996247f58924b0cfb04084793cb3.bindTooltip(
+                `<div>
+                     Line: 32 | Length: 65.1km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0dd99f6b69cb6352b9612b89b158d665 = L.polyline(
+                [[6.6194, 0.473], [5.9995, 0.5762]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_0dd99f6b69cb6352b9612b89b158d665.bindTooltip(
+                `<div>
+                     Line: 33 | Length: 69.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_393f5620930bff30a97e6612e59a43ae = L.polyline(
+                [[6.1597, 0.1061], [5.9995, 0.5762]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_393f5620930bff30a97e6612e59a43ae.bindTooltip(
+                `<div>
+                     Line: 34 | Length: 55.0km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_886c24413a11a62c48a5550f38563061 = L.polyline(
+                [[7.1436, 0.4766], [5.9995, 0.5762]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_886c24413a11a62c48a5550f38563061.bindTooltip(
+                `<div>
+                     Line: 35 | Length: 127.0km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3af0d1a5f8940b92c485c43ce4fe4de0 = L.polyline(
+                [[7.3375, -2.3318], [7.5934, -1.9405]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_3af0d1a5f8940b92c485c43ce4fe4de0.bindTooltip(
+                `<div>
+                     Line: 36 | Length: 51.6km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1e06496483c206edd517d449f721382d = L.polyline(
+                [[7.5934, -1.9405], [7.4443, -2.5946]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_1e06496483c206edd517d449f721382d.bindTooltip(
+                `<div>
+                     Line: 37 | Length: 74.1km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8f6c77d770027e293525f5be80434196 = L.polyline(
+                [[9.4072, -0.8508], [9.4368, -0.0076]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_8f6c77d770027e293525f5be80434196.bindTooltip(
+                `<div>
+                     Line: 38 | Length: 92.7km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_92b6fbf73a96d356b3bb5815b2c035e8 = L.polyline(
+                [[10.7789, -0.8524], [11.0615, -0.2333]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_92b6fbf73a96d356b3bb5815b2c035e8.bindTooltip(
+                `<div>
+                     Line: 39 | Length: 74.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8195292903ea662bc5e3ea7c72b60ba2 = L.polyline(
+                [[5.6085, -0.2193], [6.6856, -1.623]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_8195292903ea662bc5e3ea7c72b60ba2.bindTooltip(
+                `<div>
+                     Line: 40 | Length: 195.8km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_773ba4b6dcb1271f0106d04d1c802751 = L.polyline(
+                [[6.6856, -1.623], [4.9048, -1.7562]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_773ba4b6dcb1271f0106d04d1c802751.bindTooltip(
+                `<div>
+                     Line: 41 | Length: 197.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7853dd387476d6ea1aba677fe32c1dc3 = L.polyline(
+                [[4.9048, -1.7562], [5.1068, -1.2411]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_7853dd387476d6ea1aba677fe32c1dc3.bindTooltip(
+                `<div>
+                     Line: 42 | Length: 61.3km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_480c1b3a0f6f327e57a9b94c57b23acc = L.polyline(
+                [[5.1068, -1.2411], [6.1017, -0.254]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_480c1b3a0f6f327e57a9b94c57b23acc.bindTooltip(
+                `<div>
+                     Line: 43 | Length: 155.1km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cbf2c27554beb69529d2f1f38006e1cb = L.polyline(
+                [[6.1017, -0.254], [6.6194, 0.473]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_cbf2c27554beb69529d2f1f38006e1cb.bindTooltip(
+                `<div>
+                     Line: 44 | Length: 98.7km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ed94a959908ad672dc3ea54d7e410dc5 = L.polyline(
+                [[6.6194, 0.473], [7.3375, -2.3318]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_ed94a959908ad672dc3ea54d7e410dc5.bindTooltip(
+                `<div>
+                     Line: 45 | Length: 319.9km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0c0cef538797b82cd362f24f652db475 = L.polyline(
+                [[7.3375, -2.3318], [9.4072, -0.8508]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_0c0cef538797b82cd362f24f652db475.bindTooltip(
+                `<div>
+                     Line: 46 | Length: 281.1km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d812b5c9b2a83d19e67fcc7a2b384513 = L.polyline(
+                [[9.4072, -0.8508], [10.7789, -0.8524]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_d812b5c9b2a83d19e67fcc7a2b384513.bindTooltip(
+                `<div>
+                     Line: 47 | Length: 151.7km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5e174a9b1afdaa921ac158fa3250b8d3 = L.polyline(
+                [[10.7789, -0.8524], [10.0682, -2.506]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_5e174a9b1afdaa921ac158fa3250b8d3.bindTooltip(
+                `<div>
+                     Line: 48 | Length: 197.4km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3b0b48e971b2f9e96c289316bd0e08e6 = L.polyline(
+                [[10.7789, -0.8524], [11.2, -0.75]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_3b0b48e971b2f9e96c289316bd0e08e6.bindTooltip(
+                `<div>
+                     Line: 49 | Length: 47.9km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5f9467e590d2a907dc94c6ad13b67064 = L.polyline(
+                [[11.2, -0.75], [11.18, -4.3]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_5f9467e590d2a907dc94c6ad13b67064.bindTooltip(
+                `<div>
+                     Line: 50 | Length: 387.7km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_601dd7ca5dec2693b2423694f80d97f5 = L.polyline(
+                [[5.2, -2.85], [6.6856, -1.623]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_601dd7ca5dec2693b2423694f80d97f5.bindTooltip(
+                `<div>
+                     Line: 51 | Length: 213.2km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_051ec3bab35244f9100c332ed083d26d = L.polyline(
+                [[5.2, -2.85], [5.35, -4.0]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_051ec3bab35244f9100c332ed083d26d.bindTooltip(
+                `<div>
+                     Line: 52 | Length: 128.6km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2d9426388725d36b653ef12762dfe8d0 = L.polyline(
+                [[6.12, 1.19], [5.6596, -0.0226]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_2d9426388725d36b653ef12762dfe8d0.bindTooltip(
+                `<div>
+                     Line: 53 | Length: 143.6km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0838d0dfcb86c70b502a1c701f036290 = L.polyline(
+                [[6.12, 1.19], [6.13, 1.22]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_0838d0dfcb86c70b502a1c701f036290.bindTooltip(
+                `<div>
+                     Line: 54 | Length: 3.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0d26f666784d91448d9b6b0833579a27 = L.polyline(
+                [[6.13, 1.22], [6.37, 2.43]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bef621f8ac208750604193e86df99a03);
+        
+    
+            poly_line_0d26f666784d91448d9b6b0833579a27.bindTooltip(
+                `<div>
+                     Line: 55 | Length: 136.5km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_bef621f8ac208750604193e86df99a03.addTo(map_cfbc9bd8edf1daa6744b49bf7082a627);
+        
+    
+            var feature_group_4d99fc4150ff9ad546cc943435701779 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e6a4cbb36533b10ad4dc685657c3bd8f = L.circleMarker(
+                [5.6085, -0.2193],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_e6a4cbb36533b10ad4dc685657c3bd8f.bindTooltip(
+                `<div>
+                     Achimota Substation (11kV) - Greater Accra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0caa8b7ef71cf6f9554534f484a2a782 = L.circleMarker(
+                [5.6596, -0.0226],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_0caa8b7ef71cf6f9554534f484a2a782.bindTooltip(
+                `<div>
+                     Tema Substation (330kV) - Greater Accra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_520603289efa3a6bd29b998cfffa9c8b = L.circleMarker(
+                [5.563, -0.2971],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_520603289efa3a6bd29b998cfffa9c8b.bindTooltip(
+                `<div>
+                     Mallam Substation (330kV) - Greater Accra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f56602b827ad46af2ac4d2343e2fb540 = L.circleMarker(
+                [5.6401, -0.1799],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_f56602b827ad46af2ac4d2343e2fb540.bindTooltip(
+                `<div>
+                     Legon Substation (161kV) - Greater Accra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f22effd5548a3fa53aea4dfadedde75c = L.circleMarker(
+                [5.5691, -0.2413],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_f22effd5548a3fa53aea4dfadedde75c.bindTooltip(
+                `<div>
+                     Kaneshie Substation (161kV) - Greater Accra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7c90b6c0e7464456d47d09d3e5628c8f = L.circleMarker(
+                [5.5921, -0.1439],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_7c90b6c0e7464456d47d09d3e5628c8f.bindTooltip(
+                `<div>
+                     Aboadze Junction Substation (161kV) - Greater Accra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ff905bd0f4bf2829f603de52068fabd = L.circleMarker(
+                [6.6856, -1.623],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_1ff905bd0f4bf2829f603de52068fabd.bindTooltip(
+                `<div>
+                     Kumasi Central Substation (161kV) - Ashanti
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5893efb07503f3e2db07817fb2931ccb = L.circleMarker(
+                [6.7128, -1.4716],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_5893efb07503f3e2db07817fb2931ccb.bindTooltip(
+                `<div>
+                     Ejisu Substation (330kV) - Ashanti
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fc40c0d58fafab32ad563212fb5013c3 = L.circleMarker(
+                [6.2091, -1.6557],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.66, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_fc40c0d58fafab32ad563212fb5013c3.bindTooltip(
+                `<div>
+                     Obuasi Substation (33kV) - Ashanti
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f92d0795d11419fca334ff84483fb6ff = L.circleMarker(
+                [7.0553, -1.4029],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.38, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_f92d0795d11419fca334ff84483fb6ff.bindTooltip(
+                `<div>
+                     Mampong Substation (69kV) - Ashanti
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_597dc71519c70b0f57583d1fb2a2e939 = L.circleMarker(
+                [6.6094, -1.2163],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.38, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_597dc71519c70b0f57583d1fb2a2e939.bindTooltip(
+                `<div>
+                     Konongo Substation (69kV) - Ashanti
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5113345e23773995ed13e03a39f6255 = L.circleMarker(
+                [4.9048, -1.7562],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.66, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_a5113345e23773995ed13e03a39f6255.bindTooltip(
+                `<div>
+                     Takoradi Substation (33kV) - Western
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_acf831d1ebedbf1d20470c74865edd33 = L.circleMarker(
+                [4.9905, -1.7714],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.66, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_acf831d1ebedbf1d20470c74865edd33.bindTooltip(
+                `<div>
+                     Aboadze Substation (33kV) - Western
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_632e626265a9ce306df9a7fe8f164d2b = L.circleMarker(
+                [5.3093, -1.9927],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.38, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_632e626265a9ce306df9a7fe8f164d2b.bindTooltip(
+                `<div>
+                     Tarkwa Substation (69kV) - Western
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f18e795e8de146255bf77a299c801f4 = L.circleMarker(
+                [4.8747, -2.2381],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.38, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_3f18e795e8de146255bf77a299c801f4.bindTooltip(
+                `<div>
+                     Axim Substation (69kV) - Western
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61fdb088fe1909975f232a65c15e8abc = L.circleMarker(
+                [5.1068, -1.2411],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.38, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_61fdb088fe1909975f232a65c15e8abc.bindTooltip(
+                `<div>
+                     Cape Coast Substation (69kV) - Central
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45b3579d580fcae846c7b83ba45f614b = L.circleMarker(
+                [5.362, -0.6218],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_45b3579d580fcae846c7b83ba45f614b.bindTooltip(
+                `<div>
+                     Winneba Substation (330kV) - Central
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70ad923b4124e85540d7ce622ca92e2f = L.circleMarker(
+                [5.5262, -0.4124],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_70ad923b4124e85540d7ce622ca92e2f.bindTooltip(
+                `<div>
+                     Kasoa Substation (11kV) - Central
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ca79a684ba30677b9ac0d6580b2d7b31 = L.circleMarker(
+                [5.6984, -1.497],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_ca79a684ba30677b9ac0d6580b2d7b31.bindTooltip(
+                `<div>
+                     Assin Fosu Substation (11kV) - Central
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_31332e0bbf0a9fbb318e4a3b81b14314 = L.circleMarker(
+                [6.1017, -0.254],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_31332e0bbf0a9fbb318e4a3b81b14314.bindTooltip(
+                `<div>
+                     Koforidua Substation (11kV) - Eastern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a28d65586d1b33d9216dd805c203a7b = L.circleMarker(
+                [6.2991, 0.0641],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.38, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_1a28d65586d1b33d9216dd805c203a7b.bindTooltip(
+                `<div>
+                     Akosombo Substation (69kV) - Eastern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0527866764aa881835340c93fad90e1 = L.circleMarker(
+                [6.5502, -0.7749],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.38, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_c0527866764aa881835340c93fad90e1.bindTooltip(
+                `<div>
+                     Nkawkaw Substation (69kV) - Eastern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_273225a66948ff411b2e2951277f76ac = L.circleMarker(
+                [6.035, -0.4535],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.38, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_273225a66948ff411b2e2951277f76ac.bindTooltip(
+                `<div>
+                     Suhum Substation (69kV) - Eastern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb6ed16bffba3dd165188996ae7ede49 = L.circleMarker(
+                [6.6194, 0.473],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_bb6ed16bffba3dd165188996ae7ede49.bindTooltip(
+                `<div>
+                     Ho Substation (330kV) - Volta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bcb5a3fc5ca0ecd515579e2f85244644 = L.circleMarker(
+                [6.1597, 0.1061],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_bcb5a3fc5ca0ecd515579e2f85244644.bindTooltip(
+                `<div>
+                     Kpong Substation (11kV) - Volta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_154639fe4383866d581e931ea20ffe95 = L.circleMarker(
+                [7.1436, 0.4766],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_154639fe4383866d581e931ea20ffe95.bindTooltip(
+                `<div>
+                     Hohoe Substation (11kV) - Volta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dec0a28c952570d62e4fb5f3f3ce3a98 = L.circleMarker(
+                [5.9995, 0.5762],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_dec0a28c952570d62e4fb5f3f3ce3a98.bindTooltip(
+                `<div>
+                     Sogakope Substation (11kV) - Volta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1340619efb84e4533778e735030c1aba = L.circleMarker(
+                [7.3375, -2.3318],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.66, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_1340619efb84e4533778e735030c1aba.bindTooltip(
+                `<div>
+                     Sunyani Substation (33kV) - Bono
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_030413bbcb16b43b927f25c9d13ea484 = L.circleMarker(
+                [7.5934, -1.9405],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.66, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_030413bbcb16b43b927f25c9d13ea484.bindTooltip(
+                `<div>
+                     Techiman Substation (33kV) - Bono
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b1266a7c4181be8735d79c1cb6748a6 = L.circleMarker(
+                [7.4443, -2.5946],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_9b1266a7c4181be8735d79c1cb6748a6.bindTooltip(
+                `<div>
+                     Berekum Substation (330kV) - Bono
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3669ba0ebed333f388daea3c6055463c = L.circleMarker(
+                [9.4072, -0.8508],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.66, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_3669ba0ebed333f388daea3c6055463c.bindTooltip(
+                `<div>
+                     Tamale Substation (33kV) - Northern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be25609cd7bb6a28fb9a83d923ccc220 = L.circleMarker(
+                [9.4368, -0.0076],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_be25609cd7bb6a28fb9a83d923ccc220.bindTooltip(
+                `<div>
+                     Yendi Substation (11kV) - Northern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4378decdb1401dd0cf2a5e1ca4828ea1 = L.circleMarker(
+                [9.6264, -0.8265],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_4378decdb1401dd0cf2a5e1ca4828ea1.bindTooltip(
+                `<div>
+                     Savelugu Substation (330kV) - Northern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_12a9d8e8e36ca3a92ca69ad622fe575b = L.circleMarker(
+                [10.7789, -0.8524],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_12a9d8e8e36ca3a92ca69ad622fe575b.bindTooltip(
+                `<div>
+                     Bolgatanga Substation (161kV) - Upper East
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25d364a0ec7c8d460b30d49ffd06804d = L.circleMarker(
+                [11.0615, -0.2333],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_25d364a0ec7c8d460b30d49ffd06804d.bindTooltip(
+                `<div>
+                     Bawku Substation (161kV) - Upper East
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db728b103ab8d10b388669fe50ce59a8 = L.circleMarker(
+                [10.0682, -2.506],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_db728b103ab8d10b388669fe50ce59a8.bindTooltip(
+                `<div>
+                     Wa Substation (11kV) - Upper West
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f3fca83f56fa3dfd38dd8dc49746ebaf = L.circleMarker(
+                [11.2, -0.75],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_f3fca83f56fa3dfd38dd8dc49746ebaf.bindTooltip(
+                `<div>
+                     Bolgatanga Interconnection (330kV) - Burkina Faso border
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_353d5da1fd7e2a12902cc28fdbfee5a1 = L.circleMarker(
+                [5.2, -2.85],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_353d5da1fd7e2a12902cc28fdbfee5a1.bindTooltip(
+                `<div>
+                     Elubo Border Station (330kV) - Cote d'Ivoire border
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ef7f5f818c2ce357234711f6811f5b38 = L.circleMarker(
+                [6.12, 1.19],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_ef7f5f818c2ce357234711f6811f5b38.bindTooltip(
+                `<div>
+                     Aflao Border Station (330kV) - Togo border
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1b318f5e3a2521def8b5cb9201dad1b4 = L.circleMarker(
+                [6.13, 1.22],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_1b318f5e3a2521def8b5cb9201dad1b4.bindTooltip(
+                `<div>
+                     Lome Transmission Hub (161kV) - Togo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dd6ed151e085c666cc712bd686644c0d = L.circleMarker(
+                [6.37, 2.43],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_dd6ed151e085c666cc712bd686644c0d.bindTooltip(
+                `<div>
+                     Cotonou Transmission Hub (161kV) - Benin
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_46248f10ec1dd29db3e53cf385d17724 = L.circleMarker(
+                [5.35, -4.0],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_46248f10ec1dd29db3e53cf385d17724.bindTooltip(
+                `<div>
+                     Abidjan Transmission Hub (161kV) - Cote d'Ivoire
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3591707028f9a15597bfa28556b9c3be = L.circleMarker(
+                [11.18, -4.3],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_3591707028f9a15597bfa28556b9c3be.bindTooltip(
+                `<div>
+                     Bobo-Dioulasso Hub (161kV) - Burkina Faso
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_790858d5a265a32f7e6c730921d0793a = L.circleMarker(
+                [9.64, -13.58],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.22, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4d99fc4150ff9ad546cc943435701779);
+        
+    
+            circle_marker_790858d5a265a32f7e6c730921d0793a.bindTooltip(
+                `<div>
+                     Conakry Transmission Hub (161kV) - Guinea
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_4d99fc4150ff9ad546cc943435701779.addTo(map_cfbc9bd8edf1daa6744b49bf7082a627);
+        
+    
+            var feature_group_7064b2f2be096247adf1a0a657aca7a1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_54433e6dd14c4df9d355a4103bc1d102 = L.marker(
+                [5.6085, -0.2193],
+                {
+}
+            ).addTo(feature_group_7064b2f2be096247adf1a0a657aca7a1);
+        
+    
+            var icon_503aa0d946c943b092e495090e98da65 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194b",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_54433e6dd14c4df9d355a4103bc1d102.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_54433e6dd14c4df9d355a4103bc1d102.setIcon(icon_503aa0d946c943b092e495090e98da65);
+            
+    
+            var marker_47099e2e961cccdbb96fa66cb59bf26c = L.marker(
+                [5.6596, -0.0226],
+                {
+}
+            ).addTo(feature_group_7064b2f2be096247adf1a0a657aca7a1);
+        
+    
+            var icon_8ab3b725149543c1dd9c7dad5af7297e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194b",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_47099e2e961cccdbb96fa66cb59bf26c.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_47099e2e961cccdbb96fa66cb59bf26c.setIcon(icon_8ab3b725149543c1dd9c7dad5af7297e);
+            
+    
+            var marker_f12bf8f5fb769e5da69b7db31a7a7fe3 = L.marker(
+                [5.563, -0.2971],
+                {
+}
+            ).addTo(feature_group_7064b2f2be096247adf1a0a657aca7a1);
+        
+    
+            var icon_f98068d2b657de5be8bb10f22edaf35b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194b",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_f12bf8f5fb769e5da69b7db31a7a7fe3.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f12bf8f5fb769e5da69b7db31a7a7fe3.setIcon(icon_f98068d2b657de5be8bb10f22edaf35b);
+            
+    
+            var marker_adea7a1257306deb6fe7dc3c2cf96e4d = L.marker(
+                [5.6401, -0.1799],
+                {
+}
+            ).addTo(feature_group_7064b2f2be096247adf1a0a657aca7a1);
+        
+    
+            var icon_4231e8d82436b06e83ededb9841d920d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194b",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_adea7a1257306deb6fe7dc3c2cf96e4d.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_adea7a1257306deb6fe7dc3c2cf96e4d.setIcon(icon_4231e8d82436b06e83ededb9841d920d);
+            
+    
+            var marker_77ad921d59d57bf75c04c6bcfae745e1 = L.marker(
+                [5.5691, -0.2413],
+                {
+}
+            ).addTo(feature_group_7064b2f2be096247adf1a0a657aca7a1);
+        
+    
+            var icon_e64ea62d9242da104869316551321d12 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194b",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_77ad921d59d57bf75c04c6bcfae745e1.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_77ad921d59d57bf75c04c6bcfae745e1.setIcon(icon_e64ea62d9242da104869316551321d12);
+            
+    
+            var marker_4c02d96932257123b2f9fbb531b3c3ef = L.marker(
+                [5.5921, -0.1439],
+                {
+}
+            ).addTo(feature_group_7064b2f2be096247adf1a0a657aca7a1);
+        
+    
+            var icon_790de0bc3c6fddc377d07748ad910a1b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194b",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_4c02d96932257123b2f9fbb531b3c3ef.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4c02d96932257123b2f9fbb531b3c3ef.setIcon(icon_790de0bc3c6fddc377d07748ad910a1b);
+            
+    
+            var marker_a129e653d51118c6d6a122c909abd9a3 = L.marker(
+                [5.362, -0.6218],
+                {
+}
+            ).addTo(feature_group_7064b2f2be096247adf1a0a657aca7a1);
+        
+    
+            var icon_9da448dee90251545bd30bb7cb227b80 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194b",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_a129e653d51118c6d6a122c909abd9a3.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a129e653d51118c6d6a122c909abd9a3.setIcon(icon_9da448dee90251545bd30bb7cb227b80);
+            
+    
+            var marker_90159da9385189d49d72c7f54f0ebd76 = L.marker(
+                [5.5262, -0.4124],
+                {
+}
+            ).addTo(feature_group_7064b2f2be096247adf1a0a657aca7a1);
+        
+    
+            var icon_37281d99ff1b687cc0ff65e935623d56 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "#e6194b",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_90159da9385189d49d72c7f54f0ebd76.bindTooltip(
+                `<div>
+                     Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_90159da9385189d49d72c7f54f0ebd76.setIcon(icon_37281d99ff1b687cc0ff65e935623d56);
+            
+    
+            feature_group_7064b2f2be096247adf1a0a657aca7a1.addTo(map_cfbc9bd8edf1daa6744b49bf7082a627);
+        
+    
+            var layer_control_85e216269618dbe0df092f842ccf9de6_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_05fc951da8cbed2bed30318b8c5908eb,
+                },
+                overlays :  {
+                    "Substation Density Heatmap" : feature_group_b6288e90f09cd63cecbb5b389d5db9d3,
+                    "Transmission Lines" : feature_group_bef621f8ac208750604193e86df99a03,
+                    "Substations (by Voltage)" : feature_group_4d99fc4150ff9ad546cc943435701779,
+                    "Geographic Clusters" : feature_group_7064b2f2be096247adf1a0a657aca7a1,
+                },
+            };
+            let layer_control_85e216269618dbe0df092f842ccf9de6 = L.control.layers(
+                layer_control_85e216269618dbe0df092f842ccf9de6_layers.base_layers,
+                layer_control_85e216269618dbe0df092f842ccf9de6_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_cfbc9bd8edf1daa6744b49bf7082a627);
+
+        
+</script>
+</html>
